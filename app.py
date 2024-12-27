@@ -27,8 +27,8 @@ def days_to_weekend():
     next_saturday = today + timedelta((5 - today.weekday()) % 7)
     days_left = (next_saturday - today).days
     return render_template_string(html_template, days_left=days_left)
-
+port = int(os.environ.get("PORT", 5000))
+app.run(host="0.0.0.0", port=port)
 if __name__ == '__main__':
     app.run(debug=True)
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+
